@@ -1795,6 +1795,8 @@ class MyJSONComms(object):
     decoder = json._default_decoder
     _w=json.decoder.WHITESPACE.match
 
+    if type(data) is bytes:
+        data = data.decode("utf-8")
     idx = _w(data, 0).end()
     end = len(data)
 
